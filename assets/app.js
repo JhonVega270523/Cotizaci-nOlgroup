@@ -650,9 +650,9 @@
     const left = 40;
     const right = 555; // ancho útil para alinear a la derecha
 
-    // Logo centrado arriba: siempre reservamos espacio
-    const logoW = 64;
-    const logoH = 64;
+    // Logo centrado arriba con tamaño fijo solicitado
+    const logoW = 200; // ancho fijo en px
+    const logoH = 65;  // alto fijo en px
     const xLogo = (pageWidth - logoW) / 2;
     let yTop = 24 + logoH + 36; // espacio garantizado bajo el logo
     try {
@@ -965,6 +965,22 @@
       img.onerror = reject;
       img.src = src;
     });
+  }
+
+  // Calcula tamaño de render conservando proporción dentro de un límite
+  function getLogoRenderSize(logo, maxW, maxH) {
+    let naturalW = 64;
+    let naturalH = 64;
+    try {
+      if (logo && logo.el) {
+        naturalW = Math.max(1, Number(logo.el.naturalWidth || logo.el.width || 64));
+        naturalH = Math.max(1, Number(logo.el.naturalHeight || logo.el.height || 64));
+      }
+    } catch {}
+    const scale = Math.max(0.0001, Math.min(maxW / naturalW, maxH / naturalH));
+    const w = Math.round(naturalW * scale);
+    const h = Math.round(naturalH * scale);
+    return { w, h };
   }
 
   async function onHistoryAction(action, id) {
