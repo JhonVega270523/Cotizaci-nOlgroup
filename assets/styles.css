@@ -1,0 +1,283 @@
+:root {
+  --brand-primary: #44c2c4; /* teal */
+  --brand-secondary: #f3c02c; /* amarillo */
+  --brand-light: #e8f7f7; /* teal muy claro para fondos */
+  /* Unificar azules con Bootstrap */
+  --bs-primary: var(--brand-primary);
+  --bs-primary-rgb: 68, 194, 196;
+  --bs-link-color: var(--brand-primary);
+  --bs-link-hover-color: var(--brand-primary);
+  /* Forzar variantes de botón primary al mismo color en todos los estados */
+  --bs-btn-bg: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-hover-bg: var(--brand-primary);
+  --bs-btn-hover-border-color: var(--brand-primary);
+  --bs-btn-active-bg: var(--brand-primary);
+  --bs-btn-active-border-color: var(--brand-primary);
+  --bs-btn-focus-shadow-rgb: 68, 194, 196;
+}
+
+/* Estilos ligeros para complementar Bootstrap */
+
+.alphabet-btn {
+  min-width: 2.1rem;
+}
+
+.alphabet-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+/* Tabs y contenedores navegables en móvil */
+.nav-tabs { overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; }
+
+/* Colores de marca */
+.btn-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  /* Alinear variables Bootstrap para todos los estados, incluido disabled */
+  --bs-btn-bg: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-disabled-bg: var(--brand-primary);
+  --bs-btn-disabled-border-color: var(--brand-primary);
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  filter: none;
+  box-shadow: none;
+}
+
+/* Estado deshabilitado: mismo color que activo */
+.btn-primary:disabled, .btn-primary.disabled {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+/* Scroll-to-top forzado al color de marca */
+.scroll-top.btn-primary {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+/* Formularios: focus del mismo color de marca */
+.form-control:focus, .form-select:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 .25rem rgba(68, 194, 196, .25);
+}
+
+/* Checkbox: color de marca en checked y focus */
+.form-check-input:checked {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+.form-check-input:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 .25rem rgba(68, 194, 196, .25);
+}
+
+/* Botón primario: anillo de enfoque con color de marca cuando es visible */
+.btn-primary:focus-visible {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 .25rem rgba(68, 194, 196, .25);
+}
+.btn-outline-primary {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+.btn-outline-primary:hover {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+/* Hover azul para botones outline usados: Aplicar filtros, Limpiar, Todos, Cancelar, Cerrar */
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:active,
+.btn-outline-dark:hover,
+.btn-outline-dark:focus,
+.btn-outline-dark:active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Botón acento (amarillo) */
+.btn-accent {
+  color: #0f2a2a;
+  background-color: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+}
+.btn-accent:hover {
+  filter: brightness(0.95);
+}
+
+.bg-accent { background-color: var(--brand-secondary) !important; }
+
+.nav-tabs .nav-link.active {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary) var(--brand-primary) #fff;
+}
+
+.alphabet-btn { border-color: var(--brand-primary); color: var(--brand-primary); }
+.alphabet-btn.active { background-color: var(--brand-primary); color: #fff; }
+
+.product-card .table thead th { background-color: var(--brand-primary); color: #fff; }
+
+.product-card .table thead th {
+  white-space: nowrap;
+}
+
+.product-card .table tfoot td {
+  font-weight: 600;
+}
+
+.product-title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.badge-unit {
+  font-weight: 500;
+}
+
+.card-header small {
+  display: block;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Textos cortos solo en móvil para botones del historial */
+#historyFilters .label-short { display: none; }
+#historyFilters .label-full { display: inline; }
+
+@media (max-width: 576px) {
+  .brand-logo { height: 32px; }
+  .navbar .navbar-brand.centered-brand {
+    position: static;
+    left: auto;
+    transform: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* título debajo del logo */
+    row-gap: .2rem;
+  }
+  .navbar { padding-top: 1rem; padding-bottom: 1rem; }
+  .navbar .navbar-brand span { font-size: .9rem; text-align: center; white-space: normal; }
+  .scroll-top { width: 40px; height: 40px; }
+  /* Buscador ocupa todo el ancho */
+  #productSearch { max-width: 100% !important; width: 100%; }
+  /* Tablas de productos más compactas */
+  .product-card .table { min-width: 680px; }
+  .product-card .table th, .product-card .table td { padding: .4rem .5rem; font-size: .8125rem; }
+  /* Ocultar columnas menos críticas en móvil: Método, C.Mtra, Vr Unit 1/2/3 */
+  .product-card .table thead th:nth-child(3),
+  .product-card .table thead th:nth-child(4),
+  .product-card .table thead th:nth-child(6),
+  .product-card .table thead th:nth-child(7),
+  .product-card .table thead th:nth-child(8),
+  .product-card .table tbody td:nth-child(3),
+  .product-card .table tbody td:nth-child(4),
+  .product-card .table tbody td:nth-child(6),
+  .product-card .table tbody td:nth-child(7),
+  .product-card .table tbody td:nth-child(8) { display: none; }
+  /* Ocultar pie para evitar desalineaciones en móvil */
+  .product-card .table tfoot { display: none; }
+
+  /* Tabs: scroll horizontal en móvil */
+  .nav-tabs { overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
+  .nav-tabs .nav-item { flex: 0 0 auto; min-width: 0; }
+  .nav-tabs .nav-link { width: auto; padding: .45rem .6rem; white-space: nowrap; font-size: .9rem; text-align: center; }
+
+  /* Alfabeto A-Z compacto */
+  .alphabet-btn { min-width: 1.8rem; padding: .25rem .35rem; font-size: .85rem; }
+  #alphabetNav { gap: .25rem !important; justify-content: flex-start !important; }
+  /* Asegurar que el botón "Todos" no se corte */
+  #alphabetNav > button:first-child { min-width: auto; padding: .25rem .5rem; }
+
+  /* Historial: agrupar filtros 2 por fila */
+  #historyFilters { row-gap: .5rem; }
+  #historyFilters .label-full { display: none; }
+  #historyFilters .label-short { display: inline; }
+  #historyFilters > .col-auto { flex: 0 0 100%; min-width: 0; }
+  #historyFilters > .col-auto:nth-child(1),
+  #historyFilters > .col-auto:nth-child(2) { flex: 0 0 calc(50% - .25rem); min-width: 0; }
+  #historyFilters > .col-auto:nth-child(3),
+  #historyFilters > .col-auto:nth-child(4) { flex: 0 0 calc(50% - .25rem); min-width: 0; }
+  #historyFilters input, #historyFilters select { width: 100%; }
+  #historyFilters > .col-auto:nth-child(5) { flex: 0 0 100%; display: flex; justify-content: center; }
+}
+
+/* Desktop: dar más respiro al header */
+@media (min-width: 992px) {
+  .navbar { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+}
+
+/* Centrar marca en navbar manteniendo acciones a la derecha */
+.navbar .navbar-brand.centered-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Encabezados de todas las tablas con color de botones A-Z */
+.table thead th {
+  background-color: var(--brand-primary);
+  color: #fff;
+}
+
+/* Ancho mínimo para tablas de productos y scroll horizontal limpio en móviles */
+.product-card .table { min-width: 900px; }
+
+/* Botón scroll-to-top */
+.scroll-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1030;
+  display: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-top.show { display: inline-flex; }
+
+/* Hover azul (como botones A-Z) para encabezados de tablas */
+.table thead th:hover {
+  background-color: var(--brand-primary) !important;
+  color: #fff !important;
+}
+.product-card .table thead th:hover {
+  background-color: var(--brand-primary) !important;
+  color: #fff !important;
+}
+
+/* Footer delgado y discreto */
+.site-footer {
+  padding: .35rem 0;
+  font-size: .85rem;
+  color: #6c757d;
+  background-color: #fff;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+}
+
+/* Sticky footer: el contenido ocupa el alto y el footer cae al final */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+
